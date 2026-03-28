@@ -1,0 +1,585 @@
+.watch-app {
+  padding-top: 18px;
+}
+
+.watch-stage {
+  width: var(--container);
+  margin: 0 auto;
+}
+
+.watch-top {
+  margin-bottom: 18px;
+  padding: 24px;
+  border-radius: 30px;
+  overflow: hidden;
+  position: relative;
+  background:
+    linear-gradient(180deg, rgba(26, 26, 34, 0.95), rgba(14, 14, 20, 0.98)),
+    center / cover no-repeat;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow: 0 24px 70px rgba(0, 0, 0, 0.44);
+}
+
+.watch-top::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(circle at 15% 10%, rgba(143, 124, 255, 0.16), transparent 25%),
+    linear-gradient(180deg, rgba(255, 255, 255, 0.02), transparent 40%);
+  pointer-events: none;
+}
+
+.watch-top-content {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: end;
+  justify-content: space-between;
+  gap: 18px;
+}
+
+.watch-kicker {
+  margin: 0 0 8px;
+  color: var(--highlight);
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  font-size: 0.74rem;
+  font-weight: 700;
+}
+
+.watch-title {
+  margin: 0;
+  font-size: clamp(1.7rem, 3vw, 3rem);
+  line-height: 1;
+  letter-spacing: -0.03em;
+}
+
+.watch-subtitle {
+  margin: 10px 0 0;
+  color: var(--text-soft);
+  line-height: 1.7;
+  max-width: 760px;
+}
+
+.watch-head-actions {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.watch-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 340px;
+  gap: 22px;
+  align-items: start;
+}
+
+.player-column {
+  display: grid;
+  gap: 18px;
+}
+
+.player-shell {
+  position: relative;
+  border-radius: 34px;
+  padding: 14px;
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.06), rgba(255, 255, 255, 0.01)),
+    linear-gradient(180deg, rgba(23, 23, 31, 0.96), rgba(8, 8, 12, 1));
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow:
+    0 34px 90px rgba(0, 0, 0, 0.55),
+    0 0 0 1px rgba(143, 124, 255, 0.1) inset,
+    0 0 60px rgba(143, 124, 255, 0.08);
+  overflow: hidden;
+}
+
+.player-shell::before {
+  content: "";
+  position: absolute;
+  inset: -1px;
+  border-radius: inherit;
+  padding: 1px;
+  background: linear-gradient(135deg, rgba(143, 124, 255, 0.38), rgba(255, 186, 222, 0.1), rgba(255, 255, 255, 0.02));
+  mask:
+    linear-gradient(#fff 0 0) content-box,
+    linear-gradient(#fff 0 0);
+  mask-composite: exclude;
+  pointer-events: none;
+}
+
+.player-shell::after {
+  content: "";
+  position: absolute;
+  inset: auto 10% -24% auto;
+  width: 420px;
+  height: 260px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(143, 124, 255, 0.16), transparent 70%);
+  filter: blur(18px);
+  pointer-events: none;
+}
+
+.player-chrome {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 6px 8px 14px;
+  color: var(--text-soft);
+}
+
+.player-chrome strong {
+  color: var(--text);
+}
+
+.player-chip-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.player-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  height: 38px;
+  padding: 0 14px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid var(--line);
+  color: var(--text-soft);
+}
+
+.video-frame {
+  position: relative;
+  overflow: hidden;
+  border-radius: 26px;
+  background:
+    radial-gradient(circle at 50% 0%, rgba(143, 124, 255, 0.08), transparent 42%),
+    #05050a;
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.05),
+    0 22px 50px rgba(0, 0, 0, 0.48);
+}
+
+.video-frame video {
+  display: block;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  background: #000;
+  outline: none;
+}
+
+.video-frame video::-webkit-media-controls-panel {
+  background: linear-gradient(180deg, rgba(10, 10, 14, 0.58), rgba(10, 10, 14, 0.9));
+}
+
+.player-overlay {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  display: grid;
+  place-items: center;
+  background: radial-gradient(circle, rgba(8, 8, 12, 0.24), rgba(8, 8, 12, 0.58));
+  opacity: 0;
+  transition: opacity 180ms ease;
+}
+
+.player-overlay.is-visible {
+  opacity: 1;
+}
+
+.loader-ring {
+  width: 54px;
+  height: 54px;
+  border-radius: 50%;
+  border: 3px solid rgba(255, 255, 255, 0.12);
+  border-top-color: var(--accent);
+  box-shadow: 0 0 30px rgba(143, 124, 255, 0.28);
+  animation: spin 700ms linear infinite;
+}
+
+.player-control-bar {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 14px;
+  margin-top: 14px;
+}
+
+.player-groups {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.control-pill,
+.control-select {
+  height: 44px;
+  border-radius: 999px;
+  border: 1px solid var(--line);
+  background: rgba(255, 255, 255, 0.04);
+  color: var(--text);
+  padding: 0 16px;
+}
+
+.control-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.control-pill button,
+.control-pill input {
+  accent-color: var(--accent);
+}
+
+.control-select {
+  min-width: 120px;
+  outline: none;
+}
+
+.player-note {
+  color: var(--muted);
+  font-size: 0.92rem;
+}
+
+.sidebar {
+  position: sticky;
+  top: 94px;
+  padding: 16px;
+  border-radius: 30px;
+  background: linear-gradient(180deg, rgba(20, 20, 28, 0.96), rgba(13, 13, 19, 0.98));
+  border: 1px solid var(--line);
+  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.36);
+}
+
+.sidebar-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 14px;
+  padding: 4px 4px 12px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.sidebar-head h3 {
+  margin: 0;
+  font-size: 1rem;
+}
+
+.sidebar-count {
+  color: var(--muted);
+  font-size: 0.92rem;
+}
+
+.episode-list {
+  display: grid;
+  gap: 12px;
+  max-height: calc(100vh - 190px);
+  overflow: auto;
+  padding-right: 4px;
+}
+
+.episode-button {
+  position: relative;
+  display: grid;
+  gap: 10px;
+  width: 100%;
+  padding: 16px;
+  text-align: left;
+  border-radius: 22px;
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.03), rgba(255, 255, 255, 0.02));
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  color: var(--text);
+  cursor: pointer;
+  transition:
+    transform 240ms ease,
+    border-color 240ms ease,
+    box-shadow 240ms ease,
+    background 240ms ease;
+}
+
+.episode-button:hover {
+  transform: translateY(-3px);
+  border-color: rgba(143, 124, 255, 0.34);
+  box-shadow: 0 18px 38px rgba(0, 0, 0, 0.28);
+}
+
+.episode-button.is-active {
+  background:
+    linear-gradient(180deg, rgba(143, 124, 255, 0.2), rgba(143, 124, 255, 0.08)),
+    linear-gradient(180deg, rgba(255, 255, 255, 0.04), rgba(255, 255, 255, 0.02));
+  border-color: rgba(143, 124, 255, 0.4);
+  box-shadow:
+    0 20px 40px rgba(0, 0, 0, 0.34),
+    0 0 0 1px rgba(143, 124, 255, 0.16) inset,
+    0 0 34px rgba(143, 124, 255, 0.18);
+}
+
+.episode-button.is-active::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  box-shadow:
+    0 0 0 1px rgba(143, 124, 255, 0.26),
+    0 0 26px rgba(143, 124, 255, 0.2);
+  pointer-events: none;
+}
+
+.episode-button-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.episode-index {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 42px;
+  height: 34px;
+  padding: 0 12px;
+  border-radius: 999px;
+  color: #fff;
+  background: rgba(255, 255, 255, 0.06);
+}
+
+.episode-button.is-active .episode-index {
+  background: linear-gradient(135deg, var(--accent), #b69cff);
+  box-shadow: 0 0 24px rgba(143, 124, 255, 0.34);
+}
+
+.episode-time {
+  color: var(--muted);
+  font-size: 0.9rem;
+}
+
+.episode-title {
+  margin: 0;
+  font-size: 0.98rem;
+  line-height: 1.4;
+}
+
+.episode-description {
+  margin: 0;
+  color: var(--text-soft);
+  font-size: 0.92rem;
+  line-height: 1.58;
+}
+
+.sidebar-progress {
+  display: grid;
+  gap: 8px;
+}
+
+.sidebar-progress small {
+  color: var(--muted);
+}
+
+.watch-bottom {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 14px;
+  padding: 20px 22px;
+  border-radius: 26px;
+  background: linear-gradient(180deg, rgba(20, 20, 28, 0.96), rgba(13, 13, 19, 0.98));
+  border: 1px solid var(--line);
+  box-shadow: 0 18px 44px rgba(0, 0, 0, 0.28);
+}
+
+.episode-nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.nav-action {
+  min-width: 180px;
+}
+
+.watch-hint {
+  color: var(--muted);
+  font-size: 0.94rem;
+}
+
+.notice-card {
+  padding: 18px 20px;
+  border-radius: 22px;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid var(--line);
+  color: var(--text-soft);
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@media (max-width: 1140px) {
+  .watch-layout {
+    grid-template-columns: 1fr;
+  }
+
+  .sidebar {
+    position: static;
+  }
+
+  .episode-list {
+    max-height: none;
+  }
+}
+
+@media (max-width: 760px) {
+  .watch-top,
+  .player-shell,
+  .sidebar,
+  .watch-bottom {
+    border-radius: 24px;
+  }
+
+  .player-shell {
+    padding: 10px;
+  }
+
+  .player-chrome {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .episode-nav {
+    width: 100%;
+  }
+
+  .episode-nav .btn {
+    flex: 1;
+    min-width: 0;
+  }
+}
+
+.player-info{
+  margin-top:18px;
+  padding:4px 4px 12px;
+}
+
+.player-anime-title{
+  margin:0;
+  font-size:1.4rem;
+  font-weight:700;
+}
+
+.player-episode{
+  margin-top:6px;
+  font-size:0.95rem;
+  color:var(--accent);
+}
+
+.player-description{
+  margin-top:10px;
+  color:var(--text-soft);
+  line-height:1.7;
+  max-width:720px;
+}
+.episode-thumb {
+  overflow: hidden;
+  border-radius: 16px;
+  aspect-ratio: 16 / 9;
+  background: #101019;
+  border: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.episode-thumb img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* MOBILE FIX */
+
+@media (max-width:760px){
+
+.watch-stage{
+width:100%;
+padding:0 10px;
+}
+
+.player-shell{
+padding:8px;
+border-radius:18px;
+}
+
+.video-frame{
+border-radius:14px;
+}
+
+.player-info{
+margin-top:10px;
+padding:6px;
+}
+
+.player-anime-title{
+font-size:1.1rem;
+}
+
+.player-description{
+font-size:0.85rem;
+line-height:1.5;
+}
+
+/* episode list */
+
+.sidebar{
+margin-top:14px;
+padding:12px;
+border-radius:18px;
+}
+
+.episode-list{
+display:grid;
+grid-template-columns:repeat(2,1fr);
+gap:10px;
+max-height:none;
+}
+
+.episode-button{
+padding:10px;
+border-radius:14px;
+}
+
+.episode-title{
+font-size:0.85rem;
+}
+
+.episode-description{
+display:none;
+}
+
+.episode-thumb{
+border-radius:10px;
+}
+
+/* bottom nav */
+
+.watch-bottom{
+padding:14px;
+border-radius:18px;
+}
+
+.nav-action{
+flex:1;
+min-width:auto;
+}
+
+}

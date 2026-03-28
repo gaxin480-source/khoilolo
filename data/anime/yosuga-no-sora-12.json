@@ -1,0 +1,30 @@
+﻿{
+    "title":  "Yosuga No Sora 12",
+    "slug":  "yosuga-no-sora-12",
+    "description":  "",
+    "poster":  "assets/images/posters/yosuga-no-sora-poster.jpg",
+    "cover":  "assets/images/covers/yosuga-no-sora-cover.jpg",
+    "year":  null,
+    "genres":  [
+
+               ],
+    "episodes":  1,
+    "streamRoot":  "https://pub-dab99a826eda429485b516030cfc5e7d.r2.dev/anime/yosuga-no-sora-12/",
+    "seasons":  [
+                    {
+                        "seasonNumber":  1,
+                        "title":  "Season 1",
+                        "episodes":  [
+                                         {
+                                             "number":  1,
+                                             "title":  "Episode 1",
+                                             "description":  "",
+                                             "duration":  "27m",
+                                             "stream":  "anime/yosuga-no-sora-12/s01/e01/master.m3u8",
+                                             "thumbnails":  "anime/yosuga-no-sora-12/s01/e01/thumbnails.vtt",
+                                             "subtitles":  "anime/yosuga-no-sora-12/s01/e01/vi-sub.vtt"
+                                         }
+                                     ]
+                    }
+                ]
+}

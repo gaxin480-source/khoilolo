@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>KageStream</title>
+  <meta name="description" content="Personal anime streaming library with a premium dark UI." />
+  <link rel="stylesheet" href="assets/css/main.css" />
+  <link rel="stylesheet" href="assets/css/home.css" />
+  <link rel="icon" type="image/svg+xml" href="assets/media/favicon.svg">
+</head>
+<body class="page-home">
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="brand" href="index.html" aria-label="KageStream home">
+        <span class="brand-mark"></span>
+        <span class="brand-text">KageStream</span>
+      </a>
+
+      <label class="search-shell header-search" aria-label="Search anime library">
+        <svg viewBox="0 0 24 24" aria-hidden="true">
+          <path d="M10.5 4a6.5 6.5 0 1 0 0 13a6.5 6.5 0 0 0 0-13Zm0-2a8.5 8.5 0 1 1 5.32 15.12l4.53 4.53l-1.41 1.41l-4.53-4.53A8.5 8.5 0 0 1 10.5 2Z"/>
+        </svg>
+        <input id="searchInput" type="search" placeholder="Search your library" />
+      </label>
+
+      <nav class="top-nav" aria-label="Primary">
+        <a class="nav-link active" href="index.html">Home</a>
+      </nav>
+
+      <a class="header-cta" id="headerFeaturedBtn" href="#">Featured</a>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero-shell container" id="heroSection" aria-label="Featured title"></section>
+
+    <section class="content-section container">
+      <div class="section-head">
+        <div>
+          <h2>Trending Now</h2>
+        </div>
+      </div>
+      <div class="episode-rail" id="trendingRail"></div>
+    </section>
+
+    <section class="content-section container">
+      <div class="section-head section-head-search">
+        <div>
+          <h2>Anime Library</h2>
+        </div>
+      </div>
+
+      <div class="anime-grid" id="animeGrid"></div>
+    </section>
+  </main>
+
+  <script src="assets/js/storage.js" defer></script>
+  <script src="assets/js/app.js" defer></script>
+  <script src="assets/js/home.js" defer></script>
+</body>
+</html>
