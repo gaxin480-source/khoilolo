@@ -51,10 +51,12 @@ document.addEventListener("DOMContentLoaded", async () => {
       <article
         class="hero-card"
         style="background-image:
-          linear-gradient(180deg, rgba(0,0,0,0.15), rgba(0,0,0,0.25)),
-          url('${anime.cover}')"
+          linear-gradient(180deg, rgba(0,0,0,0.05), rgba(0,0,0,0.65)),
+          url('${anime.cover}');
+          background-position: top center;
+          background-size: cover;"
       >
-        <div class="hero-content">
+        <div class="hero-content" style="padding-top: 180px;">
           <h1 class="hero-title">${window.StreamUI.escapeHtml(anime.title)}</h1>
 
           <p class="hero-description">${window.StreamUI.escapeHtml(anime.description)}</p>
@@ -87,15 +89,11 @@ document.addEventListener("DOMContentLoaded", async () => {
             class="rail-card"
             href="${window.StreamUI.watchHref(anime, ep.seasonNumber, ep.number)}"
             style="background-image:
-              linear-gradient(180deg, rgba(0,0,0,0.08), rgba(0,0,0,0.1)),
-              url('${anime.cover}')"
+              linear-gradient(180deg, rgba(0,0,0,0), rgba(0,0,0,0.85)),
+              url('${anime.cover}'); position: relative;"
           >
-            <div class="rail-card-content">
-              <h3>${window.StreamUI.escapeHtml(anime.title)} · ${window.StreamUI.escapeHtml(ep.title)}</h3>
-              <p>${window.StreamUI.escapeHtml(ep.description)}</p>
-              <div class="rail-meta">
-                <span>${anime.year || ""}</span>
-              </div>
+            <div class="rail-card-content" style="position: absolute; bottom: 12px; left: 15px; padding: 0;">
+              <h3 style="margin: 0; font-size: 15px; font-weight: 600; text-shadow: 0 2px 4px rgba(0,0,0,0.9); color: #fff;">${window.StreamUI.escapeHtml(ep.title)}</h3>
             </div>
           </a>
         `;
