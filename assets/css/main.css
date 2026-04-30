@@ -636,3 +636,12 @@ kbd {
     transition-duration: 1ms !important;
   }
 }
+/* Fix blank page */
+body:not(.page-ready) main {
+  opacity: 1 !important;
+  transform: none !important;
+}
+body.page-ready main {
+  opacity: 1 !important;
+  transform: none !important;
+}
